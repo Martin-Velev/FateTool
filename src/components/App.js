@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import {approaches} from '../constants/constants'
-let someVar = 'boobs'
-const aspects = [
-  `It\'s ${someVar} raining`,
-  'It\'s tits falling from the sky',
-  'Everything is on fire'
-]
+import Aspects from './Aspects'
+
 
 class App extends Component {
   constructor(props){
@@ -15,17 +11,12 @@ class App extends Component {
       npcRollResult: '',
       selectedApproachModifier: approaches[0].modifier,
       maualModifier: '',
-      aspects: aspects,
-      newAspect: ''
     }
   }
 
   render() {
     const approachesList = approaches.map((approach) => {
       return <option value={approach.modifier} > {approach.name} + {approach.modifier}</option>
-    })
-    const aspectsList = this.state.aspects.map((aspect) => {
-      return <p> {aspect} </p>
     })
     return (
       <div>
@@ -44,10 +35,8 @@ class App extends Component {
         {this.state.npcRollResult}
         <br />
         <p> Difference = {this.state.characterRollResult - this.state.npcRollResult}</p>
-        {aspectsList}
-        <textarea value={this.state.newAspect} onChange={this.handleNewAspectChange} />
-        <button onClick={this.createNewAspect}> + </button>
-
+        <Aspects />
+        <Aspects />
       </div>
     );
   }
@@ -70,27 +59,6 @@ class App extends Component {
     this.setState({
       maualModifier: event.target.value
     })
-  }
-
-  handleNewAspectChange = (event) => {
-    this.setState({
-      newAspect: event.target.value
-    })
-  }
-
-  createNewAspect = () => {
-    // this.state.aspects.push(this.state.newAspect)
-
-    this.setState(
-      (previousState) => {
-        let aspects = previousState.aspects
-        aspects.push(previousState.newAspect)
-        return {
-          aspects: aspects,
-          newAspect: ''
-        }
-      }
-    )
   }
 
   roll = (modifier) => {
