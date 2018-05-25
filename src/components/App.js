@@ -6,6 +6,7 @@ const aspects = [
   'It\'s tits falling from the sky',
   'Everything is on fire'
 ]
+//comment
 class App extends Component {
   constructor(props){
     super(props)
