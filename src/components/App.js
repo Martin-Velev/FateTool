@@ -45,7 +45,7 @@ class App extends Component {
         <br />
         <p> Difference = {this.state.characterRollResult - this.state.npcRollResult}</p>
         {aspectsList}
-        <textArea value={this.state.newAspect} onChange={this.handleNewAspectChange} />
+        <textarea value={this.state.newAspect} onChange={this.handleNewAspectChange} />
         <button onClick={this.createNewAspect}> + </button>
 
       </div>
@@ -76,12 +76,21 @@ class App extends Component {
     this.setState({
       newAspect: event.target.value
     })
-    console.log(event.target.value)
-    console.log(this.state.newAspect)
   }
 
   createNewAspect = () => {
-    aspects.push(this.state.newAspect)
+    // this.state.aspects.push(this.state.newAspect)
+
+    this.setState(
+      (previousState) => {
+        let aspects = previousState.aspects
+        aspects.push(previousState.newAspect)
+        return {
+          aspects: aspects,
+          newAspect: ''
+        }
+      }
+    )
   }
 
   roll = (modifier) => {
