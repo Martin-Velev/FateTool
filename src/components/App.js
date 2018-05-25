@@ -6,7 +6,7 @@ const aspects = [
   'It\'s tits falling from the sky',
   'Everything is on fire'
 ]
-//Hey, Ellie
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -14,8 +14,9 @@ class App extends Component {
       characterRollResult: '',
       npcRollResult: '',
       selectedApproachModifier: approaches[0].modifier,
-      manualApproachModifier: '',
-      aspects: aspects
+      maualModifier: '',
+      aspects: aspects,
+      newAspect: ''
     }
   }
 
@@ -38,14 +39,14 @@ class App extends Component {
         <button onClick={this.rollForCharacter}> Roll for character </button>
         {this.state.characterRollResult}
         <br />
-        <input value={this.state.manualApproachModifier} onChange={this.manageInput} />
+        <input value={this.state.maualModifier} onChange={this.onManualModifierChange} />
         <button onClick={this.rollForNpc}> Roll for npc </button>
         {this.state.npcRollResult}
         <br />
         <p> Difference = {this.state.characterRollResult - this.state.npcRollResult}</p>
         {aspectsList}
-        <textArea />
-        <button> + </button>
+        <textArea value={this.state.newAspect} onChange={this.handleNewAspectChange} />
+        <button onClick={this.createNewAspect}> + </button>
 
       </div>
     );
@@ -59,16 +60,28 @@ class App extends Component {
   }
 
   rollForNpc = () => {
-    const rollResult = this.roll(this.state.manualApproachModifier)
+    const rollResult = this.roll(this.state.maualModifier)
     this.setState({
       npcRollResult: rollResult
     })
   }
 
-  manageInput = (event) => {
+  onManualModifierChange = (event) => {
     this.setState({
-      manualApproachModifier: event.target.value
+      maualModifier: event.target.value
     })
+  }
+
+  handleNewAspectChange = (event) => {
+    this.setState({
+      newAspect: event.target.value
+    })
+    console.log(event.target.value)
+    console.log(this.state.newAspect)
+  }
+
+  createNewAspect = () => {
+    aspects.push(this.state.newAspect)
   }
 
   roll = (modifier) => {
