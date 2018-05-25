@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Aspects from './Aspects'
 import Roller from './Roller'
+import CharacterSheet from './CharacterSheet'
 import {approaches} from '../constants/constants'
 import {aspects} from './Aspects'
 
@@ -18,15 +19,14 @@ const character = {
     moderate: 'no ',
     severe: ' okay'
   }
-
-
 }
+
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
     }
-}
+  }
 
   render() {
     return (
@@ -34,6 +34,7 @@ class App extends Component {
         <h1> Fate </h1>
         <Roller />
         <Aspects />
+        <CharacterSheet character={character} />
       </div>
     );
   }
