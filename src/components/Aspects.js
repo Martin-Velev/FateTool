@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 let someVar = 'boobs'
-const aspects = [
+export const aspects = [
   `It\'s ${someVar} raining`,
   'It\'s tits falling from the sky',
   'Everything is on fire'
@@ -51,6 +51,7 @@ class Aspects extends Component {
       }
     )
   }
+
 }
 
 export default Aspects
