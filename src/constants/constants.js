@@ -1,26 +1,26 @@
 export const approaches = [
   {
     name:'Careful',
-    modifier: 3
+    modifier: 2
   },
   {
     name:'Clever',
-    modifier: 2
+    modifier: 3
   },
   {
     name:'Flashy',
-    modifier: 2
+    modifier: 1
   },
   {
     name:'Forceful',
-    modifier: 1
+    modifier: 0
   },
   {
     name:'Quick',
-    modifier: 1
+    modifier: 2
   },
   {
     name:'Sneaky',
-    modifier: 0
+    modifier: 1
   }
 ]

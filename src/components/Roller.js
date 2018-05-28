@@ -11,30 +11,31 @@ class Roller extends Component {
       manualModifier: '',
     }
   }
+
   render(){
     const approachesList = approaches.map((approach) => {
-    return <option value={approach.modifier} > {approach.name} + {approach.modifier}</option>
-  }
-  )
+      return <option value={approach.modifier} > {approach.name} + {approach.modifier}</option>
+    })
     return(
       <div>
-      <select
-        value={this.state.selectedApproachModifier}
-        onChange={this.onApproachSelected}
-      >
-        {approachesList}
-      </select>
-      <button onClick={this.rollForCharacter}> Roll for character </button>
-      {this.state.characterRollResult}
-      <br />
-      <input value={this.state.manualModifier} onChange={this.onManualModifierChange} />
-      <button onClick={this.rollForNpc}> Roll for npc </button>
-      {this.state.npcRollResult}
-      <br />
-      <p> Difference = {this.state.characterRollResult - this.state.npcRollResult}</p>
+        <select
+          value={this.state.selectedApproachModifier}
+          onChange={this.onApproachSelected}
+        >
+          {approachesList}
+        </select>
+        <button onClick={this.rollForCharacter}> Roll for character </button>
+        {this.state.characterRollResult}
+        <br />
+        <input value={this.state.manualModifier} onChange={this.onManualModifierChange} />
+        <button onClick={this.rollForNpc}> Roll for npc </button>
+        {this.state.npcRollResult}
+        <br />
+        <p> Difference = {this.state.characterRollResult - this.state.npcRollResult}</p>
       </div>
     )
   }
+
   rollForCharacter = () => {
     const rollResult = this.roll(this.state.selectedApproachModifier)
     this.setState({
