@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {approaches} from '../constants/constants'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class Roller extends Component {
   constructor(props){
@@ -27,11 +29,13 @@ class Roller extends Component {
         <button onClick={this.rollForCharacter}> Roll for character </button>
         {this.state.characterRollResult}
         <br />
-        <input value={this.state.manualModifier} onChange={this.onManualModifierChange} />
-        <button onClick={this.rollForNpc}> Roll for npc </button>
-        {this.state.npcRollResult}
-        <br />
-        <p> Difference = {this.state.characterRollResult - this.state.npcRollResult}</p>
+        <div class="container-fluid mx-sm-3 mb-2">
+          <input value={this.state.manualModifier} onChange={this.onManualModifierChange} />
+          <button type="button" class="btn btn-primary" onClick={this.rollForNpc}> Roll for npc </button>
+          {this.state.npcRollResult}
+          <br />
+          <p> Difference = {this.state.characterRollResult - this.state.npcRollResult}</p>
+        </div>
       </div>
     )
   }
