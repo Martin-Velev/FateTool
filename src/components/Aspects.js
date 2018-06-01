@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import AspectsList from './AspectsList'
 
 let someVar = 'boobs'
 export const aspects = [
   `It\'s ${someVar} raining`,
   'It\'s tits falling from the sky',
-  'Everything is on fire'
+  'Everything is on ice'
 ]
 
 class Aspects extends Component {
@@ -23,7 +24,7 @@ class Aspects extends Component {
     })
     return(
       <div>
-        {aspectsList}
+        <AspectsList aspects = {this.state.aspects} />
         <textarea value={this.state.newAspect} onChange={this.handleNewAspectChange} />
         <button onClick={this.createNewAspect}> + </button>
       </div>

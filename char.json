@@ -1,0 +1,17 @@
+{
+  character: {
+    name: 'Player1',
+    character: 'SOME CHAR NAME',
+    aspects: ['Lazy', 'Impulsive', 'Smart'],
+    approaches: approaches,
+    fatePoints: 3,
+    refresh: '',
+    stunts: ['Because I am awesome, +2 on forcefull attack', 'Once per session i get to call mom', 'unoriginal', 'words'],
+    stress: [false, false, false],
+    consequences: {
+      mild: ' yes',
+      moderate: 'no ',
+      severe: ' okay'
+    }
+  }
+}
