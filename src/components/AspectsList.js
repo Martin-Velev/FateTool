@@ -30,4 +30,4 @@ class PropertiesList extends Component {
     )
   }
 }
-export default AspectsList
+export default PropertiesList

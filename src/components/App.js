@@ -6,6 +6,7 @@ import {approaches} from '../constants/constants'
 import {aspects} from './Aspects'
 import { db, base } from '../firebase'
 import CharactersList from './CharactersList'
+import NPCSheet from './NPCSheet'
 //
 // const character = {
 //   name: 'Player1',
@@ -36,6 +37,7 @@ class App extends Component {
       <div>
         <h1> Fate </h1>
         <CharactersList />
+        <NPCSheet />
       </div>
     );
   }

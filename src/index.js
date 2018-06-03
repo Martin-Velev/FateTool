@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import NPCSheet from './components/NPCSheet';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<NPCSheet />, document.getElementById('root'));
 // registerServiceWorker();
