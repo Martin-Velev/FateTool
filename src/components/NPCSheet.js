@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
 let testNPC = {
   name: 'Harry Potter',
-  description: 'The boy who lived, \n He has messy hair and green eyes, \n A lightning scar crosses his forehead.',
+  description: 'The boy who lived, He has messy hair and green eyes, A lightning scar crosses his forehead.',
   strengths: ['Plot armour', 'The power of Friendship', 'Expelliarmus'],
-  stress: [false, true, false],
+  weaknesses: ['A biased bitch, prone to favoritism ', 'Impulsive without planning', 'Lazy as fuck', 'A boring character'],
+  stress: [false, false, false]
 }
 
 class NPCSheet extends Component {
@@ -24,6 +24,9 @@ class NPCSheet extends Component {
     let displayStrengths = this.state.npc.strengths.map((strength) => {
       return <li> {strength} </li>
     })
+    let displayWeaknesses = this.state.npc.weaknesses.map((weakness) => {
+      return <li> {weakness} </li>
+    })
     return(
       <div>
         <p> HI </p>
@@ -32,8 +35,10 @@ class NPCSheet extends Component {
         <p> Stress Points: {displayStressPoints} </p>
         <p> Strengths: </p>
         <ul> {displayStrengths} </ul>
+        <p> Weaknesses: </p>
+        <ul> {displayWeaknesses} </ul>
         <button onClick={this.increaseStressPoints}> + </button>
-        <button> - </button>*/
+        <button onClick={this.decreaseStessPoints}> - </button>
       </div>
     )
   }
@@ -42,30 +47,31 @@ class NPCSheet extends Component {
     let index = 0
     for (let i = 0; i < this.state.npc.stress.length; i++) {
       if (!this.state.npc.stress[i]) {
-        index = i;
-        break;
+        index = i
+        break
       }
     }
-    
+
     this.setState((previousState) => {
       let npc = previousState.npc;
       npc.stress[index] = true
       return {npc: npc}
     })
   }
-  /*increaseStressPoints = () => {
-    let arrayOfStressPoints = this.state.stress.map((stressPoint, index) => {
-      if (!stressPoint){
-        stressPoint = true
-        this.setState(
-          {stress[index]: stressPoint}
-        ))
+  decreaseStressPoints = () => {
+    let index = 0
+    for (let i = this.state.npc.stress.length; i > 0; i--) {
+      if (this.state.npc.stress[i]) {
+        index = i
+        break
       }
     }
-  )
-}
-<button onClick={this.increaseStressPoints}> + </button>
-<button> - </button>*/
+    this.setState((previousState) => {
+      let npc = previousState.npc
+      npc.stress[index] = false
+      return {npc: npc}
+    })
+  }
 
 }
 
